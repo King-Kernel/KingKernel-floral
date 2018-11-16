@@ -146,7 +146,7 @@ enum z3fold_page_flags {
 	MIDDLE_CHUNK_MAPPED,
 	NEEDS_COMPACTING,
 	PAGE_STALE,
-	UNDER_RECLAIM
+	PAGE_CLAIMED, /* by either reclaim or free */
 };
 
 /*****************
@@ -175,11 +175,7 @@ static struct z3fold_header *init_z3fold_page(struct page *page,
 	clear_bit(MIDDLE_CHUNK_MAPPED, &page->private);
 	clear_bit(NEEDS_COMPACTING, &page->private);
 	clear_bit(PAGE_STALE, &page->private);
-<<<<<<< HEAD
 	clear_bit(PAGE_CLAIMED, &page->private);
-=======
-	clear_bit(UNDER_RECLAIM, &page->private);
->>>>>>> 6098d7e13669... z3fold: fix reclaim lock-ups
 
 	spin_lock_init(&zhdr->page_lock);
 	kref_init(&zhdr->refcount);
@@ -774,11 +770,7 @@ static void z3fold_free(struct z3fold_pool *pool, unsigned long handle)
 		atomic64_dec(&pool->pages_nr);
 		return;
 	}
-<<<<<<< HEAD
 	if (test_bit(PAGE_CLAIMED, &page->private)) {
-=======
-	if (test_bit(UNDER_RECLAIM, &page->private)) {
->>>>>>> 6098d7e13669... z3fold: fix reclaim lock-ups
 		z3fold_page_unlock(zhdr);
 		return;
 	}
@@ -874,10 +866,6 @@ static int z3fold_reclaim_page(struct z3fold_pool *pool, unsigned int retries)
 			kref_get(&zhdr->refcount);
 			list_del_init(&zhdr->buddy);
 			zhdr->cpu = -1;
-<<<<<<< HEAD
-=======
-			set_bit(UNDER_RECLAIM, &page->private);
->>>>>>> 6098d7e13669... z3fold: fix reclaim lock-ups
 			break;
 		}
 
@@ -940,11 +928,7 @@ next:
 			spin_unlock(&pool->lock);
 		} else {
 			z3fold_page_lock(zhdr);
-<<<<<<< HEAD
 			clear_bit(PAGE_CLAIMED, &page->private);
-=======
-			clear_bit(UNDER_RECLAIM, &page->private);
->>>>>>> 6098d7e13669... z3fold: fix reclaim lock-ups
 			if (kref_put(&zhdr->refcount,
 					release_z3fold_page_locked)) {
 				atomic64_dec(&pool->pages_nr);
