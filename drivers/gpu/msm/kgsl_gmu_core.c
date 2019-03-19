@@ -261,7 +261,7 @@ void gmu_core_regwrite_no_barrier(struct kgsl_device *device,
 	/*
 	 * no barrier, only for firmware loading
 	 */
-	__raw_writel_no_log(value, reg);
+	__raw_writel(value, reg);
 }
 
 void gmu_core_regrmw(struct kgsl_device *device,
