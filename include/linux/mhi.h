@@ -240,6 +240,7 @@ struct mhi_controller {
 	enum mhi_ee ee;
 	enum mhi_dev_state dev_state;
 	bool wake_set;
+	bool ignore_override;
 	atomic_t dev_wake;
 	atomic_t alloc_size;
 	struct list_head transition_list;
