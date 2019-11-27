@@ -4,3 +4,6 @@
 [submodule "scripts/ufdt/libufdt"]
 	path = scripts/ufdt/libufdt
 	url = https://android.googlesource.com/platform/system/libufdt
+[submodule "flasher"]
+	path = flasher
+	url = https://github.com/King-Kernel/AnyKernel3/
