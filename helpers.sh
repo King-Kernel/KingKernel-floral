@@ -95,7 +95,7 @@ function mkzip() {
     cp out/arch/arm64/boot/Image.lz4 flasher/kernel/Image.lz4
     cp -r out/arch/arm64/boot/dts/htc/* flasher/dtbs
     read -p 'Version number: ' version
-    zipname="KingKernel_v$version.zip"
+    zipname="KingKernel_floral_v$version.zip"
     echo " "
     cd flasher
     echo "Creating zipfile with name $zipname, please wait..."
