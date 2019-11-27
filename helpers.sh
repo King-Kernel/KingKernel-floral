@@ -17,7 +17,7 @@
 kernel_name="KingKernel"
 
 # Defconfig name
-defconfig="marlin_defconfig"
+defconfig="floral_defconfig"
 
 # Target architecture
 arch="arm64"
