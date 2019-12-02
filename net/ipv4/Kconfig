@@ -741,7 +741,7 @@ choice
 	config DEFAULT_BBR
 		bool "BBR" if TCP_CONG_BBR=y
         
-        config DEFAULT_AGILESD
+    config DEFAULT_AGILESD
 		bool "AGILESD" if TCP_CONG_AGILESD=y
 
 	config DEFAULT_BBR2
@@ -772,7 +772,7 @@ config DEFAULT_TCP_CONG
 	default "cdg" if DEFAULT_CDG
 	default "bbr" if DEFAULT_BBR
 	default "bbr2" if DEFAULT_BBR2
-        default "agilesd" if DEFAULT_AGILESD
+    default "agilesd" if DEFAULT_AGILESD
 	default "cubic"
 
 config TCP_MD5SIG
