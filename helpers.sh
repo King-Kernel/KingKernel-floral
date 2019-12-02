@@ -104,4 +104,6 @@ function mkzip() {
     mkdir -p out/flasher
     mv flasher/$zipname out/flasher/$zipname
     echo "Zip successfuly created"
+    echo " "
+    echo "Your zip is stored in out/flasher/$zipname"
 }
