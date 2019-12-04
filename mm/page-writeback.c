@@ -38,6 +38,7 @@
 #include <linux/sched/rt.h>
 #include <linux/sched/signal.h>
 #include <linux/mm_inline.h>
+#include <linux/binfmts.h>
 #include <trace/events/writeback.h>
 
 #include "internal.h"
@@ -517,6 +518,9 @@ int dirty_background_ratio_handler(struct ctl_table *table, int write,
 {
 	int ret;
 
+	if (task_is_booster(current))
+		return 0;
+    
 	ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
 	if (ret == 0 && write)
 		dirty_background_bytes = 0;
