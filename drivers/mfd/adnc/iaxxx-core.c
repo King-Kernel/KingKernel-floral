@@ -234,14 +234,15 @@ static int iaxxx_fw_bootup_regmap_init(struct iaxxx_priv *priv)
 	rc = iaxxx_application_regmap_init(priv);
 	if (rc)
 		goto err_regmap;
+#ifdef CONFIG_DEBUG_FS
 	/* Add debugfs node for regmap */
 	rc = iaxxx_dfs_switch_regmap(dev, priv->regmap, priv->dfs_node);
 	if (rc)
 		dev_err(dev, "%s: Failed to create debugfs entry\n", __func__);
 	else
 		dev_info(dev, "%s: done\n", __func__);
-	return rc;
-
+#endif    
+    return rc;
 err_regmap:
 	if (priv->regmap) {
 		iaxxx_dfs_del_regmap(dev, priv->regmap);
@@ -2194,12 +2195,14 @@ int iaxxx_device_init(struct iaxxx_priv *priv)
 		goto err_debug_init;
 	}
 
+#ifdef CONFIG_DEBUG_FS
 	/* Add debugfs node for regmap */
 	rc = iaxxx_dfs_add_regmap(priv->dev, priv->regmap, &priv->dfs_node);
 	if (rc)
 		dev_err(priv->dev,
 			"%s: Failed to create debugfs entry\n", __func__);
-
+#endif
+        
 	rc = iaxxx_event_init(priv);
 	if (rc) {
 		dev_err(priv->dev, "Failed to initialize the event\n");

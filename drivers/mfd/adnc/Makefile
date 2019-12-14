@@ -3,7 +3,7 @@
 #
 obj-$(CONFIG_MFD_IAXXX)		+= iaxxx-core.o iaxxx-boot.o iaxxx-srb.o iaxxx-plugin.o iaxxx-event.o iaxxx-module.o iaxxx-plugin-common.o
 obj-$(CONFIG_MFD_IAXXX)		+= iaxxx-regmap.o iaxxx-evnt-mgr.o iaxxx-pwr-mgmt.o ia8508a-memory-map.o
-obj-$(CONFIG_MFD_IAXXX)		+= iaxxx-dbgfs.o
+obj-$(CONFIG_DEBUG_FS)	        += iaxxx-dbgfs.o
 obj-$(CONFIG_MFD_IAXXX)		+= iaxxx-tunnel.o iaxxx-tunnel-dev.o
 obj-$(CONFIG_MFD_IAXXX)		+= iaxxx-debug.o iaxxx-cdev.o iaxxx-debug-logging.o iaxxx-sysfs.o
 obj-$(CONFIG_MFD_IAXXX)		+= iaxxx-btp.o iaxxx-static-mem.o
