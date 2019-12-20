@@ -147,9 +147,11 @@ static ssize_t read_ahead_kb_store(struct device *dev,
 	unsigned long read_ahead_kb;
 	ssize_t ret;
 
+#ifdef BLOCK_USERSPACE_READAHEAD
 	if (task_is_booster(current))
 		return 0;
-    
+#endif
+
 	ret = kstrtoul(buf, 10, &read_ahead_kb);
 	if (ret < 0)
 		return ret;
