@@ -1622,7 +1622,7 @@ submit_and_realloc:
 	dun = PG_DUN(inode, page);
 	bio_encrypted = f2fs_may_encrypt_bio(inode, NULL);
 	if (!fscrypt_mergeable_bio(bio, dun, bio_encrypted, 0)) {
-		__f2fs_submit_read_bio(F2FS_I_SB(inode), bio, DATA);
+		__submit_bio(F2FS_I_SB(inode), bio, DATA);
 		bio = NULL;
 	}
 
