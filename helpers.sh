@@ -32,6 +32,9 @@ kmake_flags=(
 # Target device name to use in flashable package names
 device_name="marlin"
 
+# Folder for github stable repo
+rel_folder="KingKernel-Releases"
+
 # Initialize kernel
 function init_kernel() {
     git submodule update --init
@@ -107,3 +110,31 @@ function mkzip() {
     echo " "
     echo "Your zip is stored in out/flasher/$zipname"
 }
+
+# Push to stable release repository
+function push_to_stable() {
+    # Variable for y/n when asking to push
+    local choice
+    
+    if [ ! -d "$HOME/$rel_folder" ]; then
+        echo "Releases repo doesn't exist! Cloning..."
+        git clone git@github.com:King-Kernel/KingKernel-Releases.git $HOME/KingKernel-Releases
+    fi;
+    echo "Copying zipfile..."
+    cp out/flasher/$zipname $HOME/KingKernel-Releases/$zipname
+    cd $HOME/$rel_folder
+    while true; do
+        read -p 'Are you sure you want to push? (y or n): ' choice
+        if [ "$choice" == "y" ]; then
+            git add . && git commit -m "Release $version" -s
+            git push
+            break
+        elif [ "$choice" == "n" ]; then
+            echo "aborting..."
+            break
+        else
+            echo "please input either y or n!"
+        fi;
+    done;
+}
+    
