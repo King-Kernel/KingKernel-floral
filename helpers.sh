@@ -137,4 +137,7 @@ function push_to_stable() {
         fi;
     done;
 }
-    
+
+function get_sha() {
+    sha1sum "out/flasher/$zipname" | awk '{ print $1 }'
+}
