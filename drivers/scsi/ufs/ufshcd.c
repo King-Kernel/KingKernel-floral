@@ -7298,8 +7298,8 @@ static void ufshcd_err_handler(struct work_struct *work)
 
 	/*
 	 * if host reset is required then skip clearing the pending
-	 * transfers forcefully because they will get cleared during
-	 * host reset and restore
+	 * transfers forcefully because they will automatically get
+	 * cleared after link startup.
 	 */
 	if (needs_reset)
 		goto skip_pending_xfer_clear;
@@ -8115,15 +8115,9 @@ static int ufshcd_host_reset_and_restore(struct ufs_hba *hba)
 	int err;
 	unsigned long flags;
 
-	/*
-	 * Stop the host controller and complete the requests
-	 * cleared by h/w
-	 */
+	/* Reset the host controller */
 	spin_lock_irqsave(hba->host->host_lock, flags);
 	ufshcd_hba_stop(hba, false);
-	hba->silence_err_logs = true;
-	ufshcd_complete_requests(hba);
-	hba->silence_err_logs = false;
 	spin_unlock_irqrestore(hba->host->host_lock, flags);
 	ufshcd_custom_cmd_log(hba, "host-reset-restore");
 
