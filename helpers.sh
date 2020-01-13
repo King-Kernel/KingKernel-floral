@@ -93,10 +93,9 @@ function mkzip() {
     rm -rf flasher/dtbs
     mkdir flasher/kernel
     mkdir flasher/dtbs
-    echo "Copying new kernel files"
+    echo "Copying kernel image"
     echo " "
-    cp out/arch/arm64/boot/Image.lz4 flasher/kernel/Image.lz4
-    cp -r out/arch/arm64/boot/dts/google/qcom-base/* flasher/dtbs
+    cp out/arch/arm64/boot/Image.lz4-dtb flasher/Image.lz4-dtb
     read -p 'Version number: ' version
     zipname="KingKernel_floral_v$version.zip"
     echo " "
