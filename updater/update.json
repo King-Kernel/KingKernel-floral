@@ -1,11 +1,11 @@
 {
   "kernel": {
     "name": "KingKernel-floral",
-    "version": "v2.1",
-    "link": "https://github.com/King-Kernel/KingKernel-Releases/raw/master/KingKernel_floral_v2.2.zip",
+    "version": "v2.2",
+    "link": "https://github.com/King-Kernel/KingKernel-Releases/raw/floral/KingKernel_floral_v2.2.zip",
     "changelog_url": "https://github.com/King-Kernel/KingKernel-floral/raw/rebased/updater/changelog",
     "date": "2020-01-28",
-    "sha1": "645ff03d2dd6fc5e544d2e9707660baa14e7d060"
+    "sha1": "68cc03ecdeceeea8135f9e41199336ac2624fa15"
   },
   "support": {
     "link": "https://t.me/kingdevel"
