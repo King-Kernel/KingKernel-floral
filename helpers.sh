@@ -30,7 +30,10 @@ kmake_flags=(
 )
 
 # Target device name to use in flashable package names
-device_name="marlin"
+device_name="floral"
+
+# Folder for kernel source
+ksource="kingkernel-floral2"
 
 # Folder for github stable repo
 rel_folder="KingKernel-Releases"
@@ -120,8 +123,9 @@ function push_to_stable() {
         git clone git@github.com:King-Kernel/KingKernel-Releases.git $HOME/KingKernel-Releases
     fi;
     echo "Copying zipfile..."
-    cp out/flasher/$zipname $HOME/KingKernel-Releases/$zipname
     cd $HOME/$rel_folder
+    git checkout floral
+    cp $HOME/$ksource/out/flasher/$zipname $HOME/$rel_folder/$zipname
     while true; do
         read -p 'Are you sure you want to push? (y or n): ' choice
         if [ "$choice" == "y" ]; then
