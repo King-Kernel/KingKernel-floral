@@ -699,8 +699,6 @@ int virtio_gpu_cmd_get_capset(struct virtio_gpu_device *vgdev,
 	struct virtio_gpu_drv_cap_cache *search_ent;
 	void *resp_buf;
 
-	*cache_p = NULL;
-
 	if (idx >= vgdev->num_capsets)
 		return -EINVAL;
 
