@@ -1,13 +1,13 @@
-Kernel: KingKernel-floral
+Kernel: KingKernel-floral-Q
 Type: RELEASE
 Device: Pixel 4/4xl
 Compiler: Proton Clang 11.0.0 Jan 2020
 Branch: rebased
-Build Number: v2.4
+Build Number: v3.0
 
 Changelog:
-- Upstreamed to 4.14.171
-- Updated to latest simple LMK (Should see better memory management)
-- Updated mm and kgsl from brickport lord (Thanks Kuran!)
-- Wireguard is now in the source itself. Inline builds should work now.
+- Rebased the ENTIRE kernel on latest R preview sources
+- Redid all commits and picked fixes from Kuran's base for RCU, mm, locking, etc.
+- Updated slmk
+- Changed version naming
 Enjoy :)
