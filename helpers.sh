@@ -94,7 +94,9 @@ function mkzip() {
     echo " "
     echo "Copying kernel image"
     echo " "
-    cp out/arch/arm64/boot/Image.lz4-dtb flasher/Image.lz4-dtb
+    cp out/arch/arm64/boot/Image.lz4 flasher/Image.lz4
+    cp out/arch/arm64/boot/dtbo.img flasher/dtbo.img
+    cp out/arch/arm64/boot/dts/google/qcom-base/sm8150-v2.dtb flasher/sm8150-v2.dtb
     read -p 'Version number: ' version
     zipname="KingKernel_floral_v$version.zip"
     echo " "
