@@ -4266,6 +4266,7 @@ CONFIG_ION_POOL_AUTO_REFILL=y
 # CONFIG_MOST is not set
 # CONFIG_GREYBUS is not set
 # CONFIG_CRYPTO_DEV_CCREE is not set
+CONFIG_ASSISTED_SUPERUSER=y
 
 #
 # USB Power Delivery and Type-C drivers
