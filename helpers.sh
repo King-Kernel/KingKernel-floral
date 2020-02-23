@@ -33,7 +33,7 @@ kmake_flags=(
 device_name="floral"
 
 # Folder for kernel source
-ksource="kingkernel-floral2"
+ksource="kingkernel-floral-r"
 
 # Folder for github stable repo
 rel_folder="KingKernel-Releases"
