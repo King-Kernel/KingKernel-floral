@@ -10,7 +10,6 @@
 #include <linux/module.h>
 #include <linux/writeback.h>
 #include <linux/device.h>
-#include <linux/binfmts.h>
 #include <trace/events/writeback.h>
 
 struct backing_dev_info noop_backing_dev_info = {
@@ -147,9 +146,6 @@ static ssize_t read_ahead_kb_store(struct device *dev,
 	unsigned long read_ahead_kb;
 	ssize_t ret;
 
-	if (task_is_booster(current))
-		return 0;
-    
 	ret = kstrtoul(buf, 10, &read_ahead_kb);
 	if (ret < 0)
 		return ret;
