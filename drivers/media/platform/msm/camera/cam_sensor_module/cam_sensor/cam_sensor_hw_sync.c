@@ -622,8 +622,9 @@ static void cam_sensor_handle_stream_on_off(
 {
 	struct cam_sensor_ctrl_t *s_ctrl_peer = NULL;
 
-	if (!s_ctrl)
+	if (!s_ctrl) {
 		return;
+    }
 
 	CAM_INFO(CAM_SENSOR, "%s : [%d=>%d] is_master %d",
 		sensor_names[s_ctrl->soc_info.index],
