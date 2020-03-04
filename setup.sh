@@ -7,13 +7,13 @@
 #
 
 # Path to executables in Clang toolchain
-clang_bin="$HOME/toolchains/proton_clang-11.0.0-20200117/bin"
+clang_bin="$HOME/toolchains/clang-r370808/bin"
 
 # 64-bit GCC toolchain prefix
-gcc_prefix64="$HOME/toolchains/proton_clang-11.0.0-20200117/bin/aarch64-linux-gnu-"
+gcc_prefix64="$HOME/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 
 # 32-bit GCC toolchain prefix
-gcc_prefix32="$HOME/toolchains/proton_clang-11.0.0-20200117/bin/arm-linux-gnueabi-"
+gcc_prefix32="$HOME/toolchains/arm-linux-androideabi-4.9/bin/arm-linux-androieabi-"
 
 # Number of parallel jobs to run
 # Do not remove; set to 1 for no parallelism.
