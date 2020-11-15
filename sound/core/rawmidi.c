@@ -988,7 +988,6 @@ static long snd_rawmidi_kernel_read1(struct snd_rawmidi_substream *substream,
 	long result = 0, count1;
 	struct snd_rawmidi_runtime *runtime = substream->runtime;
 	unsigned long appl_ptr;
-	int err = 0;
 
 	if (userbuf)
 		mutex_lock(&runtime->realloc_mutex);
