@@ -4,3 +4,9 @@
 [submodule "scripts/ufdt/libufdt"]
 	path = scripts/ufdt/libufdt
 	url = https://android.googlesource.com/platform/system/libufdt
+[submodule "scripts/mkbootimg"]
+	path = scripts/mkbootimg
+	url = https://android.googlesource.com/platform/system/tools/mkbootimg
+[submodule "boot-files"]
+	path = boot-files
+	url = https://github.com/celtare21/R-stock-coral
