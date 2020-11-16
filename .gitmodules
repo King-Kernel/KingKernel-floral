@@ -7,6 +7,7 @@
 [submodule "scripts/mkbootimg"]
 	path = scripts/mkbootimg
 	url = https://android.googlesource.com/platform/system/tools/mkbootimg
+	ignore = dirty
 [submodule "boot-files"]
 	path = boot-files
 	url = https://github.com/celtare21/R-stock-coral
